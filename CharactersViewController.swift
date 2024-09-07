@@ -2,12 +2,12 @@
 //  ViewController.swift
 //  rickNmorty
 //
-//  Created by Clement  Wekesa on 06/09/2024.
+//  Created by Clement Wekesa on 06/09/2024.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class CharactersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
