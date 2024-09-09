@@ -2,7 +2,7 @@
 //  CharacterViewCell.swift
 //  rickNmorty
 //
-//  Created by Clement  Wekesa on 09/09/2024.
+//  Created by Clement Wekesa on 09/09/2024.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ class CharacterViewCell: UITableViewCell {
     
     var imageURL: URL?
     
+    private let characterCellView = UIView()
     private let characterImageView = UIImageView()
     private let nameLabel = UILabel()
     private let speciesLabel = UILabel()
@@ -25,30 +26,67 @@ class CharacterViewCell: UITableViewCell {
     }
     
     private func setupViews() {
+        characterCellView.translatesAutoresizingMaskIntoConstraints = false
         characterImageView.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         speciesLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(characterImageView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(speciesLabel)
+        characterCellView.layer.cornerRadius = CGFloat(25)
+        characterCellView.layer.borderWidth = 1.0
+        characterCellView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 20.0)
+        
+        speciesLabel.font = UIFont.systemFont(ofSize: 17.0)
+        
+        characterImageView.contentMode = .scaleAspectFill
+        characterImageView.layer.cornerRadius = 10
+        characterImageView.clipsToBounds = true
+        
+        
+        contentView.addSubview(characterCellView)
+        characterCellView.addSubview(characterImageView)
+        characterCellView.addSubview(nameLabel)
+        characterCellView.addSubview(speciesLabel)
         
         NSLayoutConstraint.activate([
-            characterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            characterImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            characterImageView.widthAnchor.constraint(equalToConstant: 50),
-            characterImageView.heightAnchor.constraint(equalToConstant: 50),
+            
+            characterCellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            characterCellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            characterCellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            characterCellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            
+            characterImageView.leadingAnchor.constraint(equalTo: characterCellView.leadingAnchor, constant: 10),
+            characterImageView.centerYAnchor.constraint(equalTo: characterCellView.centerYAnchor),
+            characterImageView.widthAnchor.constraint(equalToConstant: 64),
+            characterImageView.heightAnchor.constraint(equalToConstant: 64),
             
             nameLabel.leadingAnchor.constraint(equalTo: characterImageView.trailingAnchor, constant: 16),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            nameLabel.topAnchor.constraint(equalTo: characterImageView.topAnchor, constant: 0),
             
             speciesLabel.leadingAnchor.constraint(equalTo: characterImageView.trailingAnchor, constant: 16),
             speciesLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             speciesLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
-            speciesLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+//            speciesLabel.bottomAnchor.constraint(equalTo: characterCellView.bottomAnchor, constant: -8)
         ])
     }
+    
+//    private func styleCell() {
+//        // Configure the cell's rounded corners and border
+//        contentView.layer.cornerRadius = 10
+//        contentView.layer.borderWidth = 1.0
+//        contentView.layer.borderColor = UIColor.lightGray.cgColor
+//        contentView.layer.masksToBounds = true // Ensures the content is clipped to the rounded corners
+//        
+//        // Optional: Add shadow to the cell for a more "card-like" look
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOpacity = 0.2
+//        layer.shadowOffset = CGSize(width: 0, height: 2)
+//        layer.shadowRadius = 4
+//        layer.masksToBounds = false
+//        layer.cornerRadius = 10 // Ensures the shadow follows the rounded corners of the cell
+//    }
     
     func configure(with character: Character, cache: NSCache<NSString, UIImage>) {
         nameLabel.text = character.name
