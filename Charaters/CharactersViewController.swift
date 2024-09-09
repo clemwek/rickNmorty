@@ -17,6 +17,8 @@ class CharactersViewController: UIViewController {
     @IBOutlet weak var charactersTable: UITableView!
     @IBOutlet weak var pageTitle: UILabel!
     
+    let imageCache = NSCache<NSString, UIImage>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCharacterTableView()
@@ -79,11 +81,10 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        print("What happence when we get here!!!")
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterViewCell", for: indexPath) as! CharacterViewCell
+        
         let character = viewModel.characters[indexPath.row]
-        cell.configure(with: character)
+        cell.configure(with: character, cache: imageCache)
         
         if indexPath.row == viewModel.characters.count - 1 {
             viewModel.fetchCharacters()
