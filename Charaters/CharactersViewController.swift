@@ -28,6 +28,7 @@ class CharactersViewController: UIViewController {
     
     private func setupCharacterTableView() {
         charactersTable.register(CharacterViewCell.self, forCellReuseIdentifier: "CharacterViewCell")
+        charactersTable.rowHeight = 120
         
         charactersTable.delegate = self
         charactersTable.dataSource = self
@@ -82,9 +83,10 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterViewCell", for: indexPath) as! CharacterViewCell
-        
+        cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         let character = viewModel.characters[indexPath.row]
         cell.configure(with: character, cache: imageCache)
+        
         
         if indexPath.row == viewModel.characters.count - 1 {
             viewModel.fetchCharacters()
