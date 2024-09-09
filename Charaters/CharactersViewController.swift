@@ -17,6 +17,10 @@ class CharactersViewController: UIViewController {
     @IBOutlet weak var charactersTable: UITableView!
     @IBOutlet weak var pageTitle: UILabel!
     
+    @IBOutlet weak var aliveButton: UIButton!
+    @IBOutlet weak var deadButton: UIButton!
+    @IBOutlet weak var unknownButton: UIButton!
+    
     let imageCache = NSCache<NSString, UIImage>()
     
     override func viewDidLoad() {
@@ -24,6 +28,21 @@ class CharactersViewController: UIViewController {
         setupCharacterTableView()
         viewModel.fetchCharacters()
         setupBindings()
+        setupFilterButton()
+    }
+    
+    private func setupFilterButton() {
+        aliveButton.layer.cornerRadius = 12
+        aliveButton.layer.borderWidth = 1.0
+        aliveButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        deadButton.layer.cornerRadius = 12
+        deadButton.layer.borderWidth = 1.0
+        deadButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        unknownButton.layer.cornerRadius = 12
+        unknownButton.layer.borderWidth = 1.0
+        unknownButton.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     private func setupCharacterTableView() {
