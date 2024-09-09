@@ -39,7 +39,6 @@ class CharacterViewCell: UITableViewCell {
         
         speciesLabel.font = UIFont.systemFont(ofSize: 17.0)
         
-        characterImageView.contentMode = .scaleAspectFill
         characterImageView.layer.cornerRadius = 10
         characterImageView.clipsToBounds = true
         
@@ -68,25 +67,8 @@ class CharacterViewCell: UITableViewCell {
             speciesLabel.leadingAnchor.constraint(equalTo: characterImageView.trailingAnchor, constant: 16),
             speciesLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             speciesLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
-//            speciesLabel.bottomAnchor.constraint(equalTo: characterCellView.bottomAnchor, constant: -8)
         ])
     }
-    
-//    private func styleCell() {
-//        // Configure the cell's rounded corners and border
-//        contentView.layer.cornerRadius = 10
-//        contentView.layer.borderWidth = 1.0
-//        contentView.layer.borderColor = UIColor.lightGray.cgColor
-//        contentView.layer.masksToBounds = true // Ensures the content is clipped to the rounded corners
-//        
-//        // Optional: Add shadow to the cell for a more "card-like" look
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOpacity = 0.2
-//        layer.shadowOffset = CGSize(width: 0, height: 2)
-//        layer.shadowRadius = 4
-//        layer.masksToBounds = false
-//        layer.cornerRadius = 10 // Ensures the shadow follows the rounded corners of the cell
-//    }
     
     func configure(with character: Character, cache: NSCache<NSString, UIImage>) {
         nameLabel.text = character.name
