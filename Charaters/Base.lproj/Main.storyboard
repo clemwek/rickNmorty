@@ -38,6 +38,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Alive">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="filterAlive:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cPU-CD-61S"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X1-cA-aCx">
                                                 <rect key="frame" x="85" y="3" width="65" height="35"/>
@@ -46,6 +49,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Dead">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="filterDead:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DGZ-DC-vba"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7f7-fv-DKM">
                                                 <rect key="frame" x="158" y="3" width="96" height="35"/>
@@ -54,6 +60,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Unknown">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="filterUnknown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vST-vf-Lm4"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

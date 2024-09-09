@@ -12,6 +12,7 @@ import Combine
 class CharactersViewController: UIViewController {
     private let viewModel = CharactersViewModel()
     private var cancellables: Set<AnyCancellable> = []
+    private var selectedFilter: CharacterStatus = .clear
     
     @IBOutlet weak var filterArea: UIView!
     @IBOutlet weak var charactersTable: UITableView!
@@ -29,6 +30,51 @@ class CharactersViewController: UIViewController {
         viewModel.fetchCharacters()
         setupBindings()
         setupFilterButton()
+    }
+    
+    @IBAction func filterAlive(_ sender: Any) {
+        selectedFilter == .alive ? filter(.clear, button: aliveButton) : filter(.alive, button: aliveButton)
+    }
+    
+    @IBAction func filterDead(_ sender: Any) {
+        deadButton.tintColor = .red
+        selectedFilter == .dead ? filter(.clear, button: deadButton) : filter(.dead, button: deadButton)
+    }
+    
+    @IBAction func filterUnknown(_ sender: Any) {
+        unknownButton.tintColor = .blue
+        selectedFilter == .unknown ? filter(.clear, button: unknownButton) : filter(.unknown, button: unknownButton)
+    }
+    
+    private func filter(_ type: CharacterStatus, button: UIButton) {
+        switch type {
+        case .alive:
+            button.isSelected = true
+            button.tintColor = .green
+            deadButton.tintColor = .clear
+            unknownButton.tintColor = .clear
+            selectedFilter = .alive
+            viewModel.filterCharacters(by: .alive)
+        case .dead:
+            button.isSelected = true
+            button.tintColor = .red
+            aliveButton.tintColor = .clear
+            unknownButton.tintColor = .clear
+            selectedFilter = .dead
+            viewModel.filterCharacters(by: .dead)
+        case .unknown:
+            button.isSelected = true
+            button.tintColor = .blue
+            aliveButton.tintColor = .clear
+            deadButton.tintColor = .clear
+            selectedFilter = .unknown
+            viewModel.filterCharacters(by: .unknown)
+        case .clear:
+            button.isSelected = false
+            button.tintColor = .clear
+            selectedFilter = .clear
+            viewModel.filterCharacters(by: .clear)
+        }
     }
     
     private func setupFilterButton() {
@@ -73,24 +119,6 @@ class CharactersViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
-    }
-    
-    @objc private func filterTapped() {
-        let alert = UIAlertController(title: "Filter by Status", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "All", style: .default, handler: { _ in
-            self.viewModel.filterCharacters(by: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "Alive", style: .default, handler: { _ in
-            self.viewModel.filterCharacters(by: "alive")
-        }))
-        alert.addAction(UIAlertAction(title: "Dead", style: .default, handler: { _ in
-            self.viewModel.filterCharacters(by: "dead")
-        }))
-        alert.addAction(UIAlertAction(title: "Unknown", style: .default, handler: { _ in
-            self.viewModel.filterCharacters(by: "unknown")
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }
 
