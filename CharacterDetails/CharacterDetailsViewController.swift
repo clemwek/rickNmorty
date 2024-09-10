@@ -23,6 +23,7 @@ class CharacterDetailsViewController: UIViewController {
         navigationController?.navigationBar.backIndicatorImage = imgBack
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = imgBack
         navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
         
         navigationItem.leftItemsSupplementBackButton = true
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
@@ -70,14 +71,14 @@ class CharacterDetailsViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             // Image constraints
-            imageHostingController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            imageHostingController.view.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             imageHostingController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageHostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageHostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageHostingController.view.heightAnchor.constraint(equalToConstant: 250),
             
             // Name view constraints
-            nameHostingController.view.topAnchor.constraint(equalTo: imageHostingController.view.bottomAnchor, constant: 50),
+            nameHostingController.view.topAnchor.constraint(equalTo: imageHostingController.view.bottomAnchor, constant: 80),
             nameHostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             nameHostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
