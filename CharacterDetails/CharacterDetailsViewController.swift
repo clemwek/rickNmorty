@@ -2,7 +2,7 @@
 //  CharacterDetailsViewController.swift
 //  rickNmorty
 //
-//  Created by Clement  Wekesa on 09/09/2024.
+//  Created by Clement Wekesa on 09/09/2024.
 //
 
 import UIKit
@@ -17,7 +17,16 @@ class CharacterDetailsViewController: UIViewController {
         
         view.backgroundColor = .white
         setupUI()
+        setupNavigation()
+    }
+    
+    
+    @objc func goBack(){
+        self.navigationController?.popViewController(animated: true)
         
+    }
+    
+    private func setupNavigation() {
         let imgBack = UIImage(systemName: "arrow.left")
         
         navigationController?.navigationBar.backIndicatorImage = imgBack
@@ -27,14 +36,6 @@ class CharacterDetailsViewController: UIViewController {
         
         navigationItem.leftItemsSupplementBackButton = true
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-
-        
-    }
-    
-    
-    @objc func goBack(){
-        self.navigationController?.popViewController(animated: true)
-        
     }
     
     private func setupUI() {
@@ -78,7 +79,7 @@ class CharacterDetailsViewController: UIViewController {
             imageHostingController.view.heightAnchor.constraint(equalToConstant: 250),
             
             // Name view constraints
-            nameHostingController.view.topAnchor.constraint(equalTo: imageHostingController.view.bottomAnchor, constant: 80),
+            nameHostingController.view.topAnchor.constraint(equalTo: imageHostingController.view.bottomAnchor, constant: 90),
             nameHostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             nameHostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             

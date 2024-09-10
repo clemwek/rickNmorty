@@ -49,7 +49,6 @@ class CharacterViewCell: UITableViewCell {
         characterCellView.addSubview(speciesLabel)
         
         NSLayoutConstraint.activate([
-            
             characterCellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             characterCellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             characterCellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
