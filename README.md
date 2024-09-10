@@ -58,17 +58,6 @@ Integrating SwiftUI with UIKit:
 **Challenge:** Loading images efficiently without affecting performance.
 **Solution:** Depending on the project, I used a simple image-loading mechanism with URLSession and caching. This can be improved with more functionality or even use a third party library.
 
-
-## Testing
-
-While testing was optional, I implemented basic unit tests for the following components:
-
-# ViewModel Testing:
-I wrote unit tests for the CharacterListViewModel to verify the filtering logic and ensure that the character list updates correctly when new data is fetched or when the filter changes.
-
-# Networking Tests:
-I wrote mock tests for the network layer to verify the API calls and ensure proper data handling from the API.
-
 ## How to Run Tests
 
 Open the Xcode project.
@@ -78,3 +67,4 @@ Xcode will run the unit tests and display the results in the Test Navigator.
 ## Future Improvements
 **Better Error Handling:** Add better user feedback for errors such as network failures, API issues, etc.
 **UI Enhancements:** Improve the UI for edge cases like empty states and loading indicators.
+**Add Tests:** It would be nice to have tests, for future improvements.
