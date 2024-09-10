@@ -11,6 +11,8 @@ Combines UIKit and SwiftUI for modern and responsive UI design.
 
 ## Instructions for Building and Running the Application
 
+_For development, I used Xcode 16beta_
+
 Prerequisites
 Xcode 12+
 Swift 5+
