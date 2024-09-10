@@ -141,4 +141,15 @@ extension CharactersViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let character = viewModel.characters[indexPath.row]
+        
+        // Initialize the detail view controller from the storyboard
+        let storyboard = UIStoryboard(name: "CharacterDetails", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "CharacterDetails") as? CharacterDetailsViewController {
+            detailVC.character = character
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
 }

@@ -45,7 +45,6 @@ class CharactersViewModel {
     // Filter characters by status
     func filterCharacters(by status: CharacterStatus) {
         self.filterStatus = status == .clear ? nil : status.rawValue
-        print(status, self.filterStatus)
         self.characters.removeAll()
         self.currentPage = 1
         self.canFetchMore = true
