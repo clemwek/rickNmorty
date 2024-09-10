@@ -58,12 +58,14 @@ Integrating SwiftUI with UIKit:
 **Solution:** Depending on the project, I used a simple image-loading mechanism with URLSession and caching. This can be improved with more functionality or even use a third party library.
 
 ## How to Run Tests
+This is for when they are added.
 
 Open the Xcode project.
 In the Xcode menu, select Product > Test or press Cmd + U.
 Xcode will run the unit tests and display the results in the Test Navigator.
 
 ## Future Improvements
+**UI Improvements: ** I would be nice to polish the UI 
 **Better Error Handling:** Add better user feedback for errors such as network failures, API issues, etc.
 **UI Enhancements:** Improve the UI for edge cases like empty states and loading indicators.
 **Add Tests:** It would be nice to have tests, for future improvements.
