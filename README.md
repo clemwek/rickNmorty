@@ -2,6 +2,12 @@
 
 This iOS application fetches and displays characters from the Rick and Morty API. The application is built using Swift, UIKit, and SwiftUI, and follows the MVVM architecture with Combine for reactive programming. The app displays a list of characters in a paginated manner and provides filtering options to display characters by status (Alive, Dead, Unknown). The detailed character view combines UIKit and SwiftUI.
 
+<img width="437" alt="Screenshot 2024-09-10 at 17 15 36" src="https://github.com/user-attachments/assets/8ea4eb6d-b93f-4875-b480-1bbcc330a19d">
+<img width="428" alt="Screenshot 2024-09-10 at 17 15 49" src="https://github.com/user-attachments/assets/fc8332a5-1b93-425e-a5bf-478f4c0716e4">
+https://github.com/user-attachments/assets/a15ba9fc-6005-4adb-8404-865117b96f8d
+
+
+
 ## Features
 
 Fetches characters from the Rick and Morty API and displays them in a paginated list.
