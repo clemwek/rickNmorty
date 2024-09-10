@@ -25,8 +25,7 @@ Press Cmd + R or click Run in Xcode to build and run the application.
 This app uses the Rick and Morty API. No additional setup is required to use the API. The base URL is already embedded in the project.
 
 ## swift
-Copy code
-https://rickandmortyapi.com/api/character
+[Copy code](https://github.com/clemwek/rickNmorty)
 
 
 ## Assumptions and Decisions Made During Development
